@@ -9,9 +9,9 @@ See [WORKFLOW.md](https://github.com/isaac-gainline/release-branch-poc/blob/rele
 | Step | PR | Status |
 |------|-----|--------|
 | SES-2849 → `release/next` | [#7](https://github.com/isaac-gainline/release-branch-poc/pull/7) | Merged |
-| SES-2861 → `release/next` | [#8](https://github.com/isaac-gainline/release-branch-poc/pull/8) | **Open** |
-| SES-2901 → `release/next` | [#9](https://github.com/isaac-gainline/release-branch-poc/pull/9) | **Open** |
-| `release/next` → `main` | — | After #8 and #9 |
+| SES-2861 → `release/next` | [#8](https://github.com/isaac-gainline/release-branch-poc/pull/8) | Merged |
+| SES-2901 → `release/next` | [#9](https://github.com/isaac-gainline/release-branch-poc/pull/9) | Open |
+| `release/next` → `main` | [#10](https://github.com/isaac-gainline/release-branch-poc/pull/10) | After #9 |
 | Tag `v1.2.0` | — | After rollout merge |
 
 ## Tags
