@@ -4,5 +4,5 @@
     "upsells_optional_extra": true,
     "overpayments_fix": true,
     "membership_basket_expiry": true,
-    "renewal_reminder": false
+    "renewal_reminder": true
 }
