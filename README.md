@@ -2,6 +2,12 @@
 
 A minimal repo demonstrating the `release/next` rollout workflow used by GAIN LINE.
 
+**Repo:** https://github.com/isaac-gainline/release-branch-poc
+
+## Quick start
+
+Read [WORKFLOW.md](WORKFLOW.md) for the hands-on walkthrough.
+
 ## Branches
 
 | Branch | Purpose |
@@ -14,34 +20,20 @@ A minimal repo demonstrating the `release/next` rollout workflow used by GAIN LI
 
 | Tag | Description |
 |-----|-------------|
-| `v1.0.0` | Baseline before the example rollout week |
-| `v1.1.0` | Rollout after merging `release/next` into `main` |
+| `v1.0.0` | Baseline on `main` before the example rollout week |
+| `v1.1.0` | Create after merging `release/next` into `main` (see WORKFLOW.md) |
 
-## Example rollout (already applied in this repo)
+## Current POC state (mid-week)
 
-1. `release/next` was created from `main` at `v1.0.0`
-2. Ticket branches merged into `release/next` through the week:
-   - `SES-1380`: Booking expiry fix
-   - `SES-1392`: My account copy update
-   - `SES-1400`: Upsells optional extra copy
-3. `release/next` merged into `main` (regular merge, not squash)
-4. `v1.1.0` tagged on `main`
-
-## Try it yourself
-
-```bash
-# See branch structure
-git log --oneline --graph --all --decorate
-
-# Compare release notes range
-git log v1.0.0..v1.1.0 --oneline
-
-# See what is on release/next but not main (mid-week state)
-git log main..release/next --oneline
-```
+- [x] `release/next` created from `main`
+- [x] [PR #1](https://github.com/isaac-gainline/release-branch-poc/pull/1) SES-1380 merged into `release/next`
+- [x] [PR #4](https://github.com/isaac-gainline/release-branch-poc/pull/4) SES-1392 merged into `release/next`
+- [ ] [PR #5](https://github.com/isaac-gainline/release-branch-poc/pull/5) SES-1400 open — **merge this to continue**
+- [ ] PR `release/next` → `main` — do after all tickets merged
+- [ ] Tag `v1.1.0` on `main`
 
 ## Release notes on GitHub
 
-Open the [v1.1.0 release](https://github.com/isaac-gainline/release-branch-poc/releases/tag/v1.1.0) and view **What's Changed**. Compare range: `v1.0.0...v1.1.0`.
+After tagging `v1.1.0`, create a release and click **Generate release notes**. Compare range: `v1.0.0...v1.1.0`.
 
-Each ticket PR merged into `release/next` appears as its own line when `release/next` is merged into `main`.
+Each ticket PR merged into `release/next` should appear as its own line when `release/next` is merged into `main`.
