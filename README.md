@@ -6,34 +6,25 @@ A minimal repo demonstrating the `release/next` rollout workflow used by GAIN LI
 
 ## Quick start
 
-Read [WORKFLOW.md](WORKFLOW.md) for the hands-on walkthrough.
-
-## Branches
-
-| Branch | Purpose |
-|--------|---------|
-| `main` | Production-ready code. Tagged for deploy. |
-| `release/next` | Integration branch for the upcoming rollout |
-| `SES-*` branches | Individual ticket work |
+Read [WORKFLOW.md](WORKFLOW.md) on `release/next` for the current walkthrough.
 
 ## Tags
 
 | Tag | Description |
 |-----|-------------|
-| `v1.0.0` | Baseline on `main` before the example rollout week |
-| `v1.1.0` | Create after merging `release/next` into `main` (see WORKFLOW.md) |
+| `v1.0.0` | Initial baseline |
+| `v1.1.0` | Rollout 1 complete |
+| `v1.2.0` | **Target** for rollout 2 (in progress) |
 
-## Current POC state (mid-week)
+## Rollout 2 state (mid-week)
 
-- [x] `release/next` created from `main`
-- [x] [PR #1](https://github.com/isaac-gainline/release-branch-poc/pull/1) SES-1380 merged into `release/next`
-- [x] [PR #4](https://github.com/isaac-gainline/release-branch-poc/pull/4) SES-1392 merged into `release/next`
-- [ ] [PR #5](https://github.com/isaac-gainline/release-branch-poc/pull/5) SES-1400 open — **merge this to continue**
-- [ ] PR `release/next` → `main` — do after all tickets merged
-- [ ] Tag `v1.1.0` on `main`
+- [x] `release/next` reset from `main` at `v1.1.0`
+- [x] [PR #7](https://github.com/isaac-gainline/release-branch-poc/pull/7) SES-2849 merged into `release/next`
+- [ ] [PR #8](https://github.com/isaac-gainline/release-branch-poc/pull/8) SES-2861 open — **merge next**
+- [ ] SES-2901 PR — create and merge after #8
+- [ ] PR `release/next` → `main`
+- [ ] Tag `v1.2.0`
 
-## Release notes on GitHub
+## Rollout 1 (complete)
 
-After tagging `v1.1.0`, create a release and click **Generate release notes**. Compare range: `v1.0.0...v1.1.0`.
-
-Each ticket PR merged into `release/next` should appear as its own line when `release/next` is merged into `main`.
+PRs #1, #4, #5 → `release/next`, then #6 → `main`. Released as `v1.1.0`.
