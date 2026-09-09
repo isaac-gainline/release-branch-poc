@@ -1,5 +1,8 @@
 {
     "booking_expiry": true,
     "account_copy_v2": true,
-    "upsells_optional_extra": true
+    "upsells_optional_extra": true,
+    "overpayments_fix": false,
+    "membership_basket_expiry": false,
+    "renewal_reminder": false
 }
