@@ -1,5 +1,5 @@
 {
     "booking_expiry": true,
-    "account_copy_v2": false,
+    "account_copy_v2": true,
     "upsells_optional_extra": false
 }
