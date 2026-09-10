@@ -7,5 +7,9 @@
     "renewal_reminder": true,
     "waitlist_email_v2": true,
     "checkout_postcode_validation": true,
-    "invoice_pdf_footer_v2": false
+    "invoice_pdf_footer_v2": true,
+    "club_portal_login_v2": false,
+    "basket_summary_v2": false,
+    "email_footer_legal_v2": false,
+    "checkout_step_labels_v2": false
 }
