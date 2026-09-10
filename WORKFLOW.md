@@ -1,25 +1,32 @@
-# Rollout 2026-09-18
+# Rollout workflow: release/2026-09-25
 
-**Production:** `main` at `v1.1.1`  
-**Release branch:** `release/2026-09-18`  
-**Target tag:** `v1.2.0`
+Target tag: **v1.3.0**
 
 ## Rules
 
-1. Branch each ticket from **`main`**
-2. Before merging into `release/2026-09-18`, merge **`main` into your ticket branch`** (hotfixes on `main`)
-3. PR base is **`release/2026-09-18`** (not `main`)
-4. Rollout day: if `main` moved after the last ticket merge, merge `main` → `release/2026-09-18`, then PR to `main`
-5. Tag `v1.2.0` on `main` after rollout merge
+1. Ticket branches are created from **`main`**, not from the release branch.
+2. Before merging a ticket PR into this release branch, merge **`main`** into the ticket (hotfixes on main).
+3. After another ticket has merged here, merge **`release/2026-09-25`** into your ticket branch (or use **Update branch** on GitHub) to resolve conflicts in shared files.
+4. Use **Create a merge commit** when merging ticket PRs (not squash).
+5. Rollout day: if `main` moved, merge **`main` → release** once, then **`release` → `main`**.
 
-## Ticket PRs (all branch from `main`)
+## Shared conflict surfaces (this exercise)
 
-| PR | Ticket | Status |
-|----|--------|--------|
-| [#11](https://github.com/isaac-gainline/release-branch-poc/pull/11) | SES-3001: Waitlist confirmation email copy | Open |
-| [#12](https://github.com/isaac-gainline/release-branch-poc/pull/12) | SES-3005: Checkout postcode validation | Open |
-| [#13](https://github.com/isaac-gainline/release-branch-poc/pull/13) | SES-3010: Invoice PDF footer | Open |
+| File | Why it conflicts |
+|------|------------------|
+| `src/features.json` | Multiple tickets flip different feature flags in one JSON file |
+| `resources/copy/checkout.yaml` | Competing checkout headlines and subtitles |
+| `config/rollout.php` | Different `copy_bundle` values per ticket |
 
-Merge with **Create a merge commit** (not squash).
+## Suggested merge order
 
-After all tickets are on `release/2026-09-18`, open PR **`release/2026-09-18` → `main`**.
+| Order | Ticket | PR |
+|-------|--------|-----|
+| 1 | SES-3101 Club portal login | First merge (clean) |
+| 2 | SES-3105 Basket summary | Conflicts until synced with release |
+| 3 | SES-3110 Email footer legal | Conflicts on `features.json` |
+| 4 | SES-3112 Checkout step labels | Conflicts on copy + config |
+
+## Practice scenario
+
+All four PRs were opened from the same `main` tip **without** merging the release branch into each ticket. Only the first PR should merge cleanly. The others should show **This branch has conflicts that must be resolved** until you merge `release/2026-09-25` into the ticket branch.
