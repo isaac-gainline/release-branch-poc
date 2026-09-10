@@ -8,7 +8,10 @@ Release branch naming: **`release/YYYY-MM-DD`** (deploy date).
 
 | Step | PR | Notes |
 |------|-----|--------|
-| Ticket → release | See open PRs | Branches from `main`; expect conflicts on shared copy/config |
+| Ticket → release | [#17](https://github.com/isaac-gainline/release-branch-poc/pull/17) SES-3101 | **Merged** (merge commit) |
+| Ticket → release | [#18](https://github.com/isaac-gainline/release-branch-poc/pull/18) SES-3105 | Conflicts until synced |
+| Ticket → release | [#19](https://github.com/isaac-gainline/release-branch-poc/pull/19) SES-3110 | Conflicts until synced |
+| Ticket → release | [#20](https://github.com/isaac-gainline/release-branch-poc/pull/20) SES-3112 | Conflicts until synced |
 | Release → main | — | After all tickets merged |
 
 See [WORKFLOW.md](https://github.com/isaac-gainline/release-branch-poc/blob/release/2026-09-25/WORKFLOW.md) on the release branch.
