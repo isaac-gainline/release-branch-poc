@@ -20,13 +20,13 @@ Target tag: **v1.3.0**
 
 ## Suggested merge order
 
-| Order | Ticket | PR |
-|-------|--------|-----|
-| 1 | SES-3101 Club portal login | First merge (clean) |
-| 2 | SES-3105 Basket summary | Conflicts until synced with release |
-| 3 | SES-3110 Email footer legal | Conflicts on `features.json` |
-| 4 | SES-3112 Checkout step labels | Conflicts on copy + config |
+| Order | Ticket | PR | Status |
+|-------|--------|-----|--------|
+| 1 | SES-3101 Club portal login | [#17](https://github.com/isaac-gainline/release-branch-poc/pull/17) | Merged |
+| 2 | SES-3105 Basket summary | [#18](https://github.com/isaac-gainline/release-branch-poc/pull/18) | Conflicts |
+| 3 | SES-3110 Email footer legal | [#19](https://github.com/isaac-gainline/release-branch-poc/pull/19) | Conflicts |
+| 4 | SES-3112 Checkout step labels | [#20](https://github.com/isaac-gainline/release-branch-poc/pull/20) | Conflicts |
 
 ## Practice scenario
 
-All four PRs were opened from the same `main` tip **without** merging the release branch into each ticket. Only the first PR should merge cleanly. The others should show **This branch has conflicts that must be resolved** until you merge `release/2026-09-25` into the ticket branch.
+All four PRs were opened from the same `main` tip **without** merging the release branch into each ticket. PR #17 merged cleanly first. PRs #18–#20 should show **This branch has conflicts that must be resolved** until you merge `release/2026-09-25` into the ticket branch (then keep all feature flags you need in `features.json`).
