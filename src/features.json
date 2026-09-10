@@ -7,5 +7,5 @@
     "renewal_reminder": true,
     "waitlist_email_v2": true,
     "checkout_postcode_validation": false,
-    "invoice_pdf_footer_v2": false
+    "invoice_pdf_footer_v2": true
 }
