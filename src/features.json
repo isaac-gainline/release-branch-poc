@@ -6,6 +6,6 @@
     "membership_basket_expiry": true,
     "renewal_reminder": true,
     "waitlist_email_v2": true,
-    "checkout_postcode_validation": false,
+    "checkout_postcode_validation": true,
     "invoice_pdf_footer_v2": true
 }
