@@ -4,5 +4,8 @@
     "upsells_optional_extra": true,
     "overpayments_fix": true,
     "membership_basket_expiry": true,
-    "renewal_reminder": true
+    "renewal_reminder": true,
+    "waitlist_email_v2": false,
+    "checkout_postcode_validation": false,
+    "invoice_pdf_footer_v2": true
 }
