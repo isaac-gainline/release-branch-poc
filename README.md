@@ -2,25 +2,31 @@
 
 **Repo:** https://github.com/isaac-gainline/release-branch-poc
 
-## Rollout 2 (in progress)
+## Active rollout: `release/2026-09-25` (target `v1.3.0`)
 
-See [WORKFLOW.md](https://github.com/isaac-gainline/release-branch-poc/blob/release/next/WORKFLOW.md) on `release/next`.
+Release branch naming: **`release/YYYY-MM-DD`** (deploy date).
 
-| Step | PR | Status |
+| Step | PR | Notes |
 |------|-----|--------|
-| SES-2849 → `release/next` | [#7](https://github.com/isaac-gainline/release-branch-poc/pull/7) | Merged |
-| SES-2861 → `release/next` | [#8](https://github.com/isaac-gainline/release-branch-poc/pull/8) | Merged |
-| SES-2901 → `release/next` | [#9](https://github.com/isaac-gainline/release-branch-poc/pull/9) | Open |
-| `release/next` → `main` | [#10](https://github.com/isaac-gainline/release-branch-poc/pull/10) | After #9 |
-| Tag `v1.2.0` | — | After rollout merge |
+| Ticket → release | [#17](https://github.com/isaac-gainline/release-branch-poc/pull/17) SES-3101 | **Merged** (merge commit) |
+| Ticket → release | [#18](https://github.com/isaac-gainline/release-branch-poc/pull/18) SES-3105 | Conflicts until synced |
+| Ticket → release | [#19](https://github.com/isaac-gainline/release-branch-poc/pull/19) SES-3110 | Conflicts until synced |
+| Ticket → release | [#20](https://github.com/isaac-gainline/release-branch-poc/pull/20) SES-3112 | Conflicts until synced |
+| Release → main | — | After all tickets merged |
+
+See [WORKFLOW.md](https://github.com/isaac-gainline/release-branch-poc/blob/release/2026-09-25/WORKFLOW.md) on the release branch.
+
+## Previous rollout: `release/2026-09-18` (`v1.2.0`)
+
+Completed via PR #16 into `main`.
 
 ## Tags
 
 | Tag | Description |
 |-----|-------------|
-| `v1.1.0` | Rollout 1 complete |
-| `v1.2.0` | Target for rollout 2 |
+| `v1.2.0` | 18 Sep rollout |
+| `v1.3.0` | Target for 25 Sep rollout |
 
-## Rollout 1 (complete)
+## Legacy
 
-PRs #1, #4, #5 → `release/next`, then #6 → `main`. Released as `v1.1.0`.
+Older examples used `release/next`. New rollouts use dated branches only.
