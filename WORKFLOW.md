@@ -1,37 +1,32 @@
-# Rollout 2 walkthrough
+# Rollout workflow: release/2026-09-25
 
-**Previous release:** `v1.1.0` on `main`  
-**Target release:** `v1.2.0`
+Target tag: **v1.3.0**
 
-## Current state (mid-week)
+## Rules
 
-| Branch | Status |
-|--------|--------|
-| `main` | Production at `v1.1.0` |
-| `release/next` | Reset from `main`. SES-2849 merged |
-| `SES-2861-membership-basket` | [PR #8](https://github.com/isaac-gainline/release-branch-poc/pull/8) open |
-| `SES-2901-renewal-reminder-v2` | [PR #9](https://github.com/isaac-gainline/release-branch-poc/pull/9) open |
+1. Ticket branches are created from **`main`**, not from the release branch.
+2. Before merging a ticket PR into this release branch, merge **`main`** into the ticket (hotfixes on main).
+3. After another ticket has merged here, merge **`release/2026-09-25`** into your ticket branch (or use **Update branch** on GitHub) to resolve conflicts in shared files.
+4. Use **Create a merge commit** when merging ticket PRs (not squash).
+5. Rollout day: if `main` moved, merge **`main` → release** once, then **`release` → `main`**.
 
-## Your steps
+## Shared conflict surfaces (this exercise)
 
-### 1. Merge tickets into `release/next`
+| File | Why it conflicts |
+|------|------------------|
+| `src/features.json` | Multiple tickets flip different feature flags in one JSON file |
+| `resources/copy/checkout.yaml` | Competing checkout headlines and subtitles |
+| `config/rollout.php` | Different `copy_bundle` values per ticket |
 
-1. Merge [PR #8](https://github.com/isaac-gainline/release-branch-poc/pull/8) SES-2861 — **Create a merge commit**
-2. Merge [PR #9](https://github.com/isaac-gainline/release-branch-poc/pull/9) SES-2901 — **Create a merge commit**
+## Suggested merge order
 
-(PR [#7](https://github.com/isaac-gainline/release-branch-poc/pull/7) SES-2849 is already merged.)
+| Order | Ticket | PR | Status |
+|-------|--------|-----|--------|
+| 1 | SES-3101 Club portal login | [#17](https://github.com/isaac-gainline/release-branch-poc/pull/17) | Merged |
+| 2 | SES-3105 Basket summary | [#18](https://github.com/isaac-gainline/release-branch-poc/pull/18) | Conflicts |
+| 3 | SES-3110 Email footer legal | [#19](https://github.com/isaac-gainline/release-branch-poc/pull/19) | Conflicts |
+| 4 | SES-3112 Checkout step labels | [#20](https://github.com/isaac-gainline/release-branch-poc/pull/20) | Conflicts |
 
-### 2. Merge `release/next` into `main`
+## Practice scenario
 
-1. New PR: base `main`, compare `release/next`
-2. Title: `Rollout: merge release/next into main`
-3. **Create a merge commit** (not squash)
-
-### 3. Tag `v1.2.0`
-
-1. Update `VERSION` to `1.2.0` on `main`
-2. Create tag `v1.2.0` on `main`
-3. Releases → **Generate release notes**
-4. Compare range: `v1.1.0...v1.2.0`
-
-PRs #7, #8, #9 and the rollout merge PR should each appear in What's Changed.
+All four PRs were opened from the same `main` tip **without** merging the release branch into each ticket. PR #17 merged cleanly first. PRs #18–#20 should show **This branch has conflicts that must be resolved** until you merge `release/2026-09-25` into the ticket branch (then keep all feature flags you need in `features.json`).
