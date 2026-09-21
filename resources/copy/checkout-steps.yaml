@@ -1,0 +1,8 @@
+steps:
+  - id: details
+    label: "Your details"
+  - id: payment
+    label: "Payment"
+  - id: confirm
+    label: "Confirmation"
+progress_bar: "Step {current} of {total}"

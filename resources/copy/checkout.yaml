@@ -1,5 +1,9 @@
-headline: "Complete your booking"
-subtitle: "Review your details before payment"
-cta_primary: "Pay now"
-cta_secondary: "Save for later"
+headline: "Complete your checkout"
+subtitle: "Confirm each step before you pay"
+cta_primary: "Confirm and pay"
+cta_secondary: "Back to details"
 footer_note: "Prices include VAT where applicable"
+step_labels:
+  details: "Your details"
+  payment: "Payment"
+  confirm: "Confirmation"
